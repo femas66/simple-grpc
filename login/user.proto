@@ -1,0 +1,4 @@
+syntax = "proto3";
+
+option go_package = "femas66/simple-grpc/login";
+
