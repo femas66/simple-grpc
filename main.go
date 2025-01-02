@@ -20,9 +20,29 @@ var userList = &model.UserList{
 	List: []*model.User{user1},
 }
 
+var course1 = &model.Course{
+	Id:   "1",
+	Name: "Kelas",
+	Classroom: &model.Classroom{
+		Id:   "1",
+		Name: "Kelas 1",
+	},
+}
+
+var courseList = &model.CourseList{
+	List: []*model.Course{course1},
+}
+
+var courseListByUser = &model.CourseListByUser{
+	List: map[string]*model.CourseList{
+		user1.Id: courseList,
+	},
+}
+
 func main() {
 	fmt.Println(user1)
 	fmt.Println(user1.String())
+	fmt.Println(courseListByUser)
 
 	jsonDataUser, err := protojson.Marshal(user1)
 	if err != nil {

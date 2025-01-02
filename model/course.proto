@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "./model";
+
+message Classroom {
+     string id = 1;
+     string name = 2;
+}
+
+message Course {
+     string id = 1;
+     string name = 2;
+     Classroom classroom = 3;
+}
+
+message CourseList {
+     repeated Course list = 1;
+}
+
+message CourseListByUser {
+     map<string, CourseList> list = 1;
+}
