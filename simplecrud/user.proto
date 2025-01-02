@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option go_package = "./simplecrud";
+
+package simplecrud;
+
+
+message User {
+     string id = 1;
+     string name = 2;
+}
+
+message UserList {
+     repeated User list = 1;
+}
+
+message UserID {
+     string id = 1;
+}
+
+message Response {
+     string message = 1;
+}
+
+message Empty {}
+
+service CRUDService {
+     rpc CreateUser(User) returns (Response);
+     rpc UpdateUser(User) returns (Response);
+     rpc DeleteUser(UserID) returns (Response);
+     rpc ReadUsers(Empty) returns (UserList);
+}
